@@ -1,12 +1,10 @@
 library(ggplot2)
 library(dplyr)
 
-# change Pos to Pos2 for results and add Pos2 logic for renderDataTable
-
 function(input, output) {
-  fProj <- reactive(read.csv(paste0(input$site1, "/projections.csv"), stringsAsFactors = F))
+  fProj <- reactive(read.csv(paste0("Data/", input$site1, "/projections.csv"), stringsAsFactors = F))
   
-  output$mtime1 <- renderText(as.character(file.info(paste0(input$site1, "/projections.csv"))$mtime))
+  output$mtime1 <- renderText(as.character(file.info(paste0("Data/", input$site1, "/projections.csv"))$mtime))
   
   proj <- reactive({
     if (input$position1 == "All") {
@@ -49,9 +47,9 @@ function(input, output) {
 
 ###############################################################################  
     
-  fResults <- reactive(read.csv(paste0(input$site2, "/results.csv"), stringsAsFactors = F))
+  fResults <- reactive(read.csv(paste0("Data/", input$site2, "/results.csv"), stringsAsFactors = F))
   
-  output$mtime2 <- renderText(as.character(file.info(paste0(input$site2, "/results.csv"))$mtime))
+  output$mtime2 <- renderText(as.character(file.info(paste0("Data/", input$site2, "/results.csv"))$mtime))
   
   results <- reactive({
     if (input$position2 == "All") {
