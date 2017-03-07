@@ -121,7 +121,7 @@ for (sFlag in sFlags) {
     geom_smooth(method = "lm") +
     geom_text(size = 2, vjust = -0.75, fontface = "bold") +
     ggtitle(paste(site, as.character(Sys.Date()), "All Positions", sep = " :: "),
-            subtitle = "@WeTalkFS_NBA") +
+            subtitle = "@WeTalkDFS_NBA") +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
     # ggtitle(paste("@wetlkfntsysprts",
     #               paste(site, as.character(Sys.Date()), "All Positions", sep = " :: "),
@@ -145,7 +145,7 @@ for (sFlag in sFlags) {
       geom_smooth(method = "lm") +
       geom_text(size = 2, vjust = -0.75, fontface = "bold") +
       ggtitle(paste(site, as.character(Sys.Date()), pos[i], sep = " :: "),
-              subtitle = "@WeTalkFS_NBA") +
+              subtitle = "@WeTalkDFS_NBA") +
       theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
     print(plots[[i]])
     ggsave(paste0("~/Dropbox/DFS/NBA/", sFlag, "/proj", pos[i],

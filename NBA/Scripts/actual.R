@@ -113,7 +113,7 @@ for (sFlag in sFlags) {
     geom_text(size = 2, vjust = -0.75, fontface = "bold") +
     # geom_text(data = subset(pool, Exposure > 0.1), size = 3) +
     ggtitle(paste(site, as.character(Sys.Date() - 1), "All Positions", sep = " :: "),
-            subtitle = "@WeTalkFS_NBA") +
+            subtitle = "@WeTalkDFS_NBA") +
     # theme_dark() +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
   print(scatter)
@@ -136,7 +136,7 @@ for (sFlag in sFlags) {
       geom_smooth(method = "lm", color = "black") +
       geom_text(size = 2, vjust = -0.75, fontface = "bold") +
       ggtitle(paste(site, as.character(Sys.Date() - 1), pos[i], sep = " :: "),
-              subtitle = "@WeTalkFS_NBA") +
+              subtitle = "@WeTalkDFS_NBA") +
       # theme_dark() +
       theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
     print(plots[[i]])
@@ -153,7 +153,7 @@ for (sFlag in sFlags) {
     geom_text(size = 2, vjust = -0.75, fontface = "bold") +
     # geom_text(data = subset(pool, Exposure > 0.1), size = 3) +
     ggtitle(paste(site, as.character(Sys.Date() - 1), "All Positions", sep = " :: "),
-            subtitle = "@WeTalkFS_NBA") +
+            subtitle = "@WeTalkDFS_NBA") +
     theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
   print(scatter)
   ggsave(paste0("~/Dropbox/DFS/NBA/", sFlag, "/", "valAll.jpg"),
@@ -171,7 +171,7 @@ for (sFlag in sFlags) {
       geom_smooth(method = "lm") +
       geom_text(size = 2, vjust = -0.75, fontface = "bold") +
       ggtitle(paste(site, as.character(Sys.Date() - 1), pos[i], sep = " :: "),
-              subtitle = "@WeTalkFS_NBA") +
+              subtitle = "@WeTalkDFS_NBA") +
       theme(plot.title = element_text(hjust = 0.5), plot.subtitle = element_text(hjust = 0.5))
     print(plots[[i]])
     ggsave(paste0("~/Dropbox/DFS/NBA/", sFlag, "/val", pos[i],
