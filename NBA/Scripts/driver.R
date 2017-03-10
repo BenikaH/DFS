@@ -34,16 +34,15 @@ source("Scripts/injuries.R")
 source("Scripts/b2b.R")
 
 for (sFlag in sFlags) {
-  # site names and data sources
+  # site names
   if (sFlag == "FD") {
     site <- "FanDuel"
-    sources <- c("FantasyPros", "numberFire", "RotoGrinders", #"Rotowire",
-                 "SportingCharts", "SportsLine", "SwishAnalytics")
   } else if (sFlag == "DK") {
     site <- "DraftKings"
-    sources <- c("FantasyPros", "numberFire", "RotoGrinders", #"Rotowire",
-                 "SportsLine", "SwishAnalytics")
   }
+  
+  # data sources
+  sources <- c("FantasyPros", "numberFire", "RotoGrinders", "SportsLine", "SwishAnalytics")
   
   # download and save projections from all data sources
   if (sourceFlag == 1) {
@@ -63,9 +62,9 @@ for (sFlag in sFlags) {
     full_join(sportsline, by = "Player") %>%
     full_join(swishanalytics, by = "Player") %>%
     full_join(b2b, by = "Team")
-  if (sFlag == "FD") {
-    pool <- full_join(pool, sportingcharts, by = "Player")
-  }
+  # if (sFlag == "FD") {
+  #   pool <- full_join(pool, sportingcharts, by = "Player")
+  # }
   # keep only those players who have projections from all sources
   # pool <- na.omit(pool)
   
