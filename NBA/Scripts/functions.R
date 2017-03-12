@@ -43,34 +43,34 @@ bonus <- function(x) {
 }
 
 teamAbbr <- function(team) {
-  if (team == "Atlanta") {team <- "ATL"}
-  else if (team == "Boston") {team <- "BOS"}
-  else if (team == "Brooklyn") {team <- "BKN"}
-  else if (team == "Charlotte") {team <- "CHA"}
-  else if (team == "Chicago") {team <- "CHI"}
-  else if (team == "Cleveland") {team <- "CLE"}
-  else if (team == "Dallas") {team <- "DAL"}
-  else if (team == "Denver") {team <- "DEN"}
-  else if (team == "Detroit") {team <- "DET"}
-  else if (team == "Golden State") {team <- "GSW"}
-  else if (team == "Houston") {team <- "HOU"}
-  else if (team == "Indiana") {team <- "IND"}
-  else if (team == "L.A. Clippers") {team <- "LAC"}
-  else if (team == "L.A. Lakers") {team <- "LAL"}
-  else if (team == "Memphis") {team <- "MEM"}
-  else if (team == "Miami") {team <- "MIA"}
-  else if (team == "Milwaukee") {team <- "MIL"}
-  else if (team == "Minnesota") {team <- "MIN"}
-  else if (team == "New Orleans") {team <- "NOR"}
-  else if (team == "New York") {team <- "NYK"}
-  else if (team == "Oklahoma City") {team <- "OKC"}
-  else if (team == "Orlando") {team <- "ORL"}
-  else if (team == "Philadelphia") {team <- "PHI"}
-  else if (team == "Phoenix") {team <- "PHO"}
-  else if (team == "Portland") {team <- "POR"}
-  else if (team == "Sacramento") {team <- "SAC"}
-  else if (team == "San Antonio") {team <- "SAS"}
-  else if (team == "Toronto") {team <- "TOR"}
-  else if (team == "Utah") {team <- "UTH"}
-  else if (team == "Washington") {team <- "WAS"}
+  if (team == "Atlanta" | team == "Atlanta Hawks") {team <- "ATL"}
+  else if (team == "Boston" | team == "Boston Celtics") {team <- "BOS"}
+  else if (team == "Brooklyn" | team == "Brooklyn Nets") {team <- "BKN"}
+  else if (team == "Charlotte" | team == "Charlotte Hornets") {team <- "CHA"}
+  else if (team == "Chicago" | team == "Chicago Bulls") {team <- "CHI"}
+  else if (team == "Cleveland" | team == "Cleveland Cavaliers") {team <- "CLE"}
+  else if (team == "Dallas" | team == "Dallas Mavericks") {team <- "DAL"}
+  else if (team == "Denver" | team == "Denver Nuggets") {team <- "DEN"}
+  else if (team == "Detroit" | team == "Detroit Pistons") {team <- "DET"}
+  else if (team == "Golden State" | team == "Golden State Warriors") {team <- "GSW"}
+  else if (team == "Houston" | team == "Houston Rockets") {team <- "HOU"}
+  else if (team == "Indiana" | team == "Indiana Pacers") {team <- "IND"}
+  else if (team == "L.A. Clippers" | team == "Los Angeles Clippers") {team <- "LAC"}
+  else if (team == "L.A. Lakers" | team == "Los Angeles Lakers") {team <- "LAL"}
+  else if (team == "Memphis" | team == "Memphis Grizzlies") {team <- "MEM"}
+  else if (team == "Miami" | team == "Miami Heat") {team <- "MIA"}
+  else if (team == "Milwaukee" | team == "Milwaukee Bucks") {team <- "MIL"}
+  else if (team == "Minnesota" | team == "Minnesota Timberwolves") {team <- "MIN"}
+  else if (team == "New Orleans" | team == "New Orleans Pelicans") {team <- "NOR"}
+  else if (team == "New York" | team == "New York Knicks") {team <- "NYK"}
+  else if (team == "Oklahoma City" | team == "Oklahoma City Thunder") {team <- "OKC"}
+  else if (team == "Orlando" | team == "Orlando Magic") {team <- "ORL"}
+  else if (team == "Philadelphia" | team == "Philadelphia 76ers") {team <- "PHI"}
+  else if (team == "Phoenix" | team == "Phoenix Suns") {team <- "PHO"}
+  else if (team == "Portland" | team == "Portland Trail Blazers") {team <- "POR"}
+  else if (team == "Sacramento" | team == "Sacramento Kings") {team <- "SAC"}
+  else if (team == "San Antonio" | team == "San Antonio Spurs") {team <- "SAS"}
+  else if (team == "Toronto" | team == "Toronto Raptors") {team <- "TOR"}
+  else if (team == "Utah" | team == "Utah Jazz") {team <- "UTH"}
+  else if (team == "Washington" | team == "Washington Wizards") {team <- "WAS"}
 }
