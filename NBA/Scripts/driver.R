@@ -42,7 +42,7 @@ for (sFlag in sFlags) {
   }
   
   # data sources
-  sources <- c("FantasyPros", "numberFire", "RotoGrinders", "SportsLine", "SwishAnalytics")
+  sources <- c("FantasyPros", "numberFire", "RotoGrinders", "Rotowire", "SportsLine", "SwishAnalytics")
   
   # download and save projections from all data sources
   if (sourceFlag == 1) {
@@ -60,6 +60,7 @@ for (sFlag in sFlags) {
   # join projection sources
   pool <- full_join(fantasypros, numberFire, by = "Player") %>%
     full_join(rotogrinders, by = "Player") %>%
+    full_join(rotowire, by = "Player") %>%
     full_join(sportsline, by = "Player") %>%
     full_join(swishanalytics, by = "Player") %>%
     full_join(b2b, by = "Team")
