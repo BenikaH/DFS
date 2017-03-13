@@ -5,6 +5,7 @@ rm(list = ls())
 # load packages
 library(XML)
 library(RCurl)
+library(rvest)
 library(stringr)
 library(rjson)
 library(dplyr)
