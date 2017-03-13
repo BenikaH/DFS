@@ -48,17 +48,18 @@ for (sFlag in sFlags) {
   if (sourceFlag == 1) {
     for (i in 1:length(sources)) {
       source(paste0("Scripts/", sources[i], ".R"))
+      source("Scripts/dvp.R")
     }
   }
   # load data frames
   for (i in 1:length(sources)) {
     load(paste0("Data/", sFlag, "/", sources[i], ".RData"))
+    load(paste0("Data/", sFlag, "/", "dvp.RData"))
   }
   
   # join projection sources
   pool <- full_join(fantasypros, numberFire, by = "Player") %>%
     full_join(rotogrinders, by = "Player") %>%
-    # full_join(rotowire, by = "Player") %>%
     full_join(sportsline, by = "Player") %>%
     full_join(swishanalytics, by = "Player") %>%
     full_join(b2b, by = "Team")
@@ -68,11 +69,25 @@ for (sFlag in sFlags) {
   # keep only those players who have projections from all sources
   # pool <- na.omit(pool)
   
+  # add DvP column
+  pool$DvP <- NA
+  for (i in 1:nrow(pool)) {
+    pool$DvP[i] <- dvp$DvP[dvp$Opp == sub("@", "", pool$Opp[i]) & dvp$Pos == pool$Pos[i]]
+  }
+  
   # enable secondary position column for DraftKings
   if (sFlag == "FD") {
     posStr <- "Pos"
+    dvpStr <- "DvP"
   } else {
     posStr <- c("Pos", "Pos2")
+    dvpStr <- c("DvP", "DvP2")
+    pool$DvP2 <- NA
+    for (i in 1:nrow(pool)) {
+      if (pool$Pos2[i] != "" & !is.na(pool$Pos2[i])) {
+        pool$DvP2[i] <- dvp$DvP[dvp$Opp == sub("@", "", pool$Opp[i]) & dvp$Pos == pool$Pos2[i]]
+      }
+    }
   }
   
   # rearrange columns
@@ -94,10 +109,10 @@ for (sFlag in sFlags) {
                                                     round, digits = 2)
   # rearrange columns
   pool <- cbind(pool[, c("Player", "Team", posStr, "Opp", "Tipoff", "Salary",
-                         "Projection", "SE")],
+                         "Projection", "SE", dvpStr)],
                 pool[, -which(colnames(pool) %in% c("Player", "Team", posStr,
                                                     "Opp", "Tipoff", "Salary",
-                                                    "Projection", "SE"))])
+                                                    "Projection", "SE", dvpStr))])
   # filter out players with very low projections
   pool <- filter(pool, Projection > minPts)
   # sort pool by player mean
