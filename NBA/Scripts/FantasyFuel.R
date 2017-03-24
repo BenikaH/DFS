@@ -5,9 +5,10 @@ remDr <- rD$client
 # navigate to numberFire page for daily NBA projections
 remDr$navigate(paste0("http://www.dailyfantasyfuel.com/nba/projections/", tolower(site)))
 Sys.sleep(1)
-
 # scrape projections
 webElems <- remDr$findElements('xpath', paste0('//*[@id="projections"]/div[1]/div/div[5]/div'))
+
+# function to get attributes from the table rows
 getAttributes <- function(webElem) {
   as.character(c(paste(webElem$getElementAttribute("data-first_name"),
                        webElem$getElementAttribute("data-last_name")),
