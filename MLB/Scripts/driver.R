@@ -22,7 +22,7 @@ early <- ""
 # early <- c("Sun 12:00PM", "Sun 3:30PM")
 
 # set working directory
-setwd("~/OneDrive/R/MLB")
+setwd("~/OneDrive/GitHub/DFS/MLB")
 
 # load functions
 source("Scripts/functions.R")

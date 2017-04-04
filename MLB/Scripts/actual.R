@@ -10,7 +10,7 @@ library(ggplot2)
 library(RColorBrewer)
 
 # set working directory
-setwd("~/OneDrive/R/MLB")
+setwd("~/OneDrive/GitHub/DFS/MLB")
 
 # load functions
 source("Scripts/functions.R")
