@@ -7,19 +7,23 @@
 #   rD <- rsDriver(verbose = F, extraCapabilities = cprof)
 #   remDr <- rD$client
 # }
-# navigate to Daily Fantasy Cafe homepage
-remDr$navigate("https://www.dailyfantasycafe.com/tools/projections/mlb")
-Sys.sleep(1)
-# click login link
-login <- remDr$findElement("link text", "Login")
-login$clickElement()
-Sys.sleep(1)
-# enter user name
-user <- remDr$findElement("name", "username")
-user$sendKeysToElement(list("wetlkfntsysprts"))
-# enter password
-pass <- remDr$findElement("name", "password")
-pass$sendKeysToElement(list("wetalk247", key = "enter"))
+
+if (sFlag == "FD") {
+  # navigate to Daily Fantasy Cafe homepage
+  remDr$navigate("https://www.dailyfantasycafe.com/tools/projections/mlb")
+  Sys.sleep(1)
+  # click login link
+  login <- remDr$findElement("link text", "Login")
+  login$clickElement()
+  Sys.sleep(1)
+  # enter user name
+  user <- remDr$findElement("name", "username")
+  user$sendKeysToElement(list("wetlkfntsysprts"))
+  # enter password
+  pass <- remDr$findElement("name", "password")
+  pass$sendKeysToElement(list("wetalk247", key = "enter"))
+}
+
 # navigate to Daily Fantasy Cafe page for daily MLB projections
 remDr$navigate("https://www.dailyfantasycafe.com/tools/projections/mlb")
 Sys.sleep(1)
