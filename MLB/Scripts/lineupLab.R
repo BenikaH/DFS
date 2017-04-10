@@ -6,7 +6,7 @@
 # rD <- rsDriver(verbose = F, extraCapabilities = cprof)
 # remDr <- rD$client
 
-# navigate to Swich Analytics page for daily NBA projections
+# navigate to Lineup Lab page for daily MLB projections
 if (sFlag == "FD") {
   remDr$navigate("https://www.lineuplab.com/MLB/fanduel")
 } else if (sFlag == "DK") {
@@ -18,7 +18,7 @@ Sys.sleep(1)
 projButton <- remDr$findElement("id", "load-projection-source-button")
 projButton$clickElement()
 Sys.sleep(3)
-# get player players
+# get players
 players <- remDr$findElements("class name", "pl-player-name-col")
 players <- as.character(sapply(players, function(x) x$getElementText()))[-1]
 # get salaries

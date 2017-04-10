@@ -1,14 +1,11 @@
-# create remote driver
-# if (sFlag == "FD") {
-#   cprof <- list(chromeOptions =
-#                   list(extensions =
-#                          list(base64encode("Scripts/Adblock-Plus_v1.12.4.crx"))
-#                   ))
-#   rD <- rsDriver(verbose = F, extraCapabilities = cprof)
-#   remDr <- rD$client
-# }
-
 if (sFlag == "FD") {
+  # create remote driver
+  cprof <- list(chromeOptions =
+                  list(extensions =
+                         list(base64encode("Scripts/Adblock-Plus_v1.12.4.crx"))
+                  ))
+  rD <- rsDriver(verbose = F, extraCapabilities = cprof)
+  remDr <- rD$client
   # navigate to Daily Fantasy Cafe homepage
   remDr$navigate("https://www.dailyfantasycafe.com/tools/projections/mlb")
   Sys.sleep(1)
