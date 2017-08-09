@@ -19,7 +19,7 @@ function(input, output, session) {
   })
   
   output$projPlot <- renderPlot({
-    ggplot(proj(), aes(x = Salary, y = Projection, label = Label)) +
+    ggplot(filter(proj(), !is.na(Hand)), aes(x = Salary, y = Projection, label = Label)) +
       geom_jitter() +
       geom_smooth(method = "lm") +
       geom_text(size = 4, vjust = -0.75, fontface = "bold") +
