@@ -4,6 +4,7 @@ rm(list = ls())
 
 # load packages
 library(XML)
+library(RCurl)
 library(stringr)
 library(dplyr)
 library(ggplot2)
@@ -41,9 +42,9 @@ for (sFlag in sFlags) {
   names(sHitters) <- c("1B", "2B", "3B", "HR", "RBI", "R", "BB", "SB", "HBP")
   
   # download previous day's stats from Baseball Reference
-  actB <- readHTMLTable("http://www.baseball-reference.com/leagues/daily.fcgi?type=b&dates=yesterday",
+  actB <- readHTMLTable(getURL("https://www.baseball-reference.com/leagues/daily.fcgi?type=b&dates=yesterday"),
                           stringsAsFactors = F)[[1]]
-  actP <- readHTMLTable("http://www.baseball-reference.com/leagues/daily.fcgi?type=p&dates=yesterday",
+  actP <- readHTMLTable(getURL("https://www.baseball-reference.com/leagues/daily.fcgi?type=p&dates=yesterday"),
                         stringsAsFactors = F)[[1]]
   
   # change column names

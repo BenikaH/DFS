@@ -1,6 +1,6 @@
 if (sFlag == "FD") {
   # download projections from numberFire
-  batters <- readHTMLTable(getURL("https://www.numberfire.com/mlb/daily-fantasy/daily-baseball-projections"),
+  batters <- readHTMLTable(getURL("https://www.numberfire.com/mlb/daily-fantasy/daily-baseball-projections/batters"),
                            stringsAsFactors = F)[[4]][, 1:2]
   pitchers <- readHTMLTable(getURL("https://www.numberfire.com/mlb/daily-fantasy/daily-baseball-projections/pitchers"),
                            stringsAsFactors = F)[[4]][, 1:2]
@@ -62,6 +62,7 @@ names(batters) <- c("Player", "numberFire")
 names(pitchers) <- c("Player", "numberFire")
 # combine batters and pitchers
 pool <- rbind(batters, pitchers)
+pool$First.Pitch <- str_extract(pool$Player, "[A-Z][a-z]{2} [0-9]{1,2}:[0-9]{2}[a-z]{2}$")
 # extract first initial and last name
 pool$Label <- str_extract(pool$Player, "^[A-Z]\\. \\S+")
 # extract player name
